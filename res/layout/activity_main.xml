@@ -25,6 +25,7 @@
 		android:layout_centerHorizontal="true"
         android:id="@+id/urlBox"
         android:hint="@string/urlHint"
+        android:text="http://www2.engr.arizona.edu/~sprinkjm/work/ece473-573/sampleData01-hw02.txt"
         android:inputType="textUri"/>
     <Button 
         android:layout_width="wrap_content"
