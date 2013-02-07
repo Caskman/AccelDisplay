@@ -28,5 +28,12 @@ public class MainActivity extends Activity {
 		intent.putExtra("FILE_URL", e.getText().toString());
 		startActivity(intent);
 	}
+	
+	public void openDisplay(View view) {
+		Intent intent = new Intent(this,AccelVisualActivity.class);
+		EditText e = (EditText)findViewById(R.id.urlBox);
+		intent.putExtra("FILE_URL", e.getText().toString());
+		startActivity(intent);
+	}
 
 }
