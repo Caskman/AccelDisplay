@@ -8,5 +8,6 @@
     <string name="assign">ECE 473 Homework 2</string>
     <string name="urlHint">www.samplesite.com/datafile.txt</string>
     <string name="viewFileLabel">View File</string>
+    <string name="accelVisualLabel">View Acceleration Data</string>
 
 </resources>

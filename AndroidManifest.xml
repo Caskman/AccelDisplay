@@ -26,8 +26,11 @@
         <activity
             android:name="caskman.acceldisplay.ViewFileActivity"
             android:label="@string/viewFileLabel">
-            
         </activity>
-    </application>
+        <activity
+            android:name="caskman.acceldisplay.AccelVisualActivity"
+            android:label="@string/accelVisualLabel">
+        </activity>
+        </application>
 
 </manifest>
