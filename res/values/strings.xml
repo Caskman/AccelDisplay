@@ -31,6 +31,7 @@
 	    <item>Sample File 2</item>
 	</string-array>
 	<string-array name="localFilenames">
-	    
+	    <item>sample1.txt</item>
+	    <item>sample2.txt</item>
 	</string-array>
 </resources>

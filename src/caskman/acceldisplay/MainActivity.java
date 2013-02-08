@@ -1,6 +1,7 @@
 package caskman.acceldisplay;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
@@ -12,6 +13,7 @@ import org.apache.http.impl.client.DefaultHttpClient;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.res.AssetManager;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
@@ -98,15 +100,34 @@ public class MainActivity extends Activity {
 		int type = ((Spinner)findViewById(R.id.originSpinner)).getSelectedItemPosition();
 		String data = "Error";
 		if (type == 1) {
-			data = requestFile(((EditText)findViewById(R.id.urlBox)).gette);
+			data = requestFile(((EditText)findViewById(R.id.urlBox)).getText().toString());
 		} else if (type == 2) {
 			data = getLocalFile(getResources().getStringArray(R.array.localFilenames)[((Spinner)findViewById(R.id.localFileSpinner)).getSelectedItemPosition() - 1]);
 		}
+		return data;
 	}
 
+	private String getLocalFile(String filename) {
+		AssetManager am = getAssets();
+		String data = "Error";
+		try {
+			BufferedReader in = new BufferedReader(new InputStreamReader(am.open(filename)));
+			data = "";
+			if (in.ready())
+				data += in.readLine();
+			while (in.ready()) 
+				data += "\n"+in.readLine();
+			
+		} catch (IOException e) {
+			data = e.toString();
+		}
+		return data;
+	}
+	
 	private String requestFile(String url) {
 		DefaultHttpClient httpclient = new DefaultHttpClient();
 		HttpGet httppost = new HttpGet(url);
+		BufferedReader r;
 		try {
 			HttpResponse response = httpclient.execute(httppost);
 			HttpEntity ht = response.getEntity();
@@ -115,19 +136,19 @@ public class MainActivity extends Activity {
 
 			InputStream is = buf.getContent();
 
-			BufferedReader r = new BufferedReader(new InputStreamReader(is));
+			r = new BufferedReader(new InputStreamReader(is));
 
 			StringBuilder total = new StringBuilder();
 			String line;
 			while ((line = r.readLine()) != null) {
 				total.append(line + "\n");
 			}
-
+			r.close();
 			return total.toString();
 		} catch (Exception e) {
 			e.printStackTrace();
 			return e.toString();
-		}
+		} 
 
 	}
 	
