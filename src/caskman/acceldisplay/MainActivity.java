@@ -1,5 +1,15 @@
 package caskman.acceldisplay;
 
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+
+import org.apache.http.HttpEntity;
+import org.apache.http.HttpResponse;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.entity.BufferedHttpEntity;
+import org.apache.http.impl.client.DefaultHttpClient;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -74,17 +84,53 @@ public class MainActivity extends Activity {
 	
 	public void openFile(View view) {
 		Intent intent = new Intent(this,ViewFileActivity.class);
-		EditText e = (EditText)findViewById(R.id.urlBox);
-		intent.putExtra("FILE_URL", e.getText().toString());
+		intent.putExtra("DATA", getData());
 		startActivity(intent);
 	}
 	
 	public void openDisplay(View view) {
 		Intent intent = new Intent(this,AccelVisualActivity.class);
-		EditText e = (EditText)findViewById(R.id.urlBox);
-		intent.putExtra("FILE_URL", e.getText().toString());
+		intent.putExtra("DATA", getData());
 		startActivity(intent);
 	}
 
+	private String getData() {
+		int type = ((Spinner)findViewById(R.id.originSpinner)).getSelectedItemPosition();
+		String data = "Error";
+		if (type == 1) {
+			data = requestFile(((EditText)findViewById(R.id.urlBox)).gette);
+		} else if (type == 2) {
+			data = getLocalFile(getResources().getStringArray(R.array.localFilenames)[((Spinner)findViewById(R.id.localFileSpinner)).getSelectedItemPosition() - 1]);
+		}
+	}
+
+	private String requestFile(String url) {
+		DefaultHttpClient httpclient = new DefaultHttpClient();
+		HttpGet httppost = new HttpGet(url);
+		try {
+			HttpResponse response = httpclient.execute(httppost);
+			HttpEntity ht = response.getEntity();
+
+			BufferedHttpEntity buf = new BufferedHttpEntity(ht);
+
+			InputStream is = buf.getContent();
+
+			BufferedReader r = new BufferedReader(new InputStreamReader(is));
+
+			StringBuilder total = new StringBuilder();
+			String line;
+			while ((line = r.readLine()) != null) {
+				total.append(line + "\n");
+			}
+
+			return total.toString();
+		} catch (Exception e) {
+			e.printStackTrace();
+			return e.toString();
+		}
+
+	}
+	
+	
 	
 }

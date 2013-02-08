@@ -26,7 +26,11 @@
 	    <item>http://www2.engr.arizona.edu/~sprinkjm/work/ece473-573/sampleData03-hw02.txt</item>
 	</string-array>
 	<string-array name="localFileEntries">
-	    <item>File 1</item>
-	    <item>File 2</item>
+	    <item>Select Sample File</item>
+	    <item>Sample File 1</item>
+	    <item>Sample File 2</item>
+	</string-array>
+	<string-array name="localFilenames">
+	    
 	</string-array>
 </resources>
