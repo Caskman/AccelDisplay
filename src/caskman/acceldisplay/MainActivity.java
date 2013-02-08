@@ -7,6 +7,7 @@ import android.view.Menu;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 
@@ -17,7 +18,7 @@ public class MainActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		
-		Spinner s = (Spinner)findViewById(R.id.spinner);
+		Spinner s = (Spinner)findViewById(R.id.sampleLinkSpinner);
 		s.setOnItemSelectedListener(new OnItemSelectedListener() {
 			@Override
 			public void onItemSelected(AdapterView<?> arg0, View arg1,
@@ -39,11 +40,23 @@ public class MainActivity extends Activity {
 					int arg2, long arg3) {
 				int pos = arg0.getSelectedItemPosition();
 				if (pos == 0) {
-					((Spinner)findViewById(R.id.spinner)).setEnabled(true);
+					((Spinner)findViewById(R.id.sampleLinkSpinner)).setEnabled(false);
 					((EditText)findViewById(R.id.urlBox)).setEnabled(false);
-					(());
+					((Spinner)findViewById(R.id.localFileSpinner)).setEnabled(false);
+					((Button)findViewById(R.id.viewButton)).setEnabled(false);
+					((Button)findViewById(R.id.animateButton)).setEnabled(false);
 				} else if (pos == 1) {
-					
+					((Spinner)findViewById(R.id.sampleLinkSpinner)).setEnabled(true);
+					((EditText)findViewById(R.id.urlBox)).setEnabled(true);
+					((Spinner)findViewById(R.id.localFileSpinner)).setEnabled(false);
+					((Button)findViewById(R.id.viewButton)).setEnabled(true);
+					((Button)findViewById(R.id.animateButton)).setEnabled(true);
+				} else if (pos == 2) {
+					((Spinner)findViewById(R.id.sampleLinkSpinner)).setEnabled(false);
+					((EditText)findViewById(R.id.urlBox)).setEnabled(false);
+					((Spinner)findViewById(R.id.localFileSpinner)).setEnabled(true);
+					((Button)findViewById(R.id.viewButton)).setEnabled(true);
+					((Button)findViewById(R.id.animateButton)).setEnabled(true);
 				}
 			}
 			@Override
@@ -73,19 +86,5 @@ public class MainActivity extends Activity {
 		startActivity(intent);
 	}
 
-	public void spinnerSelected(View view) {
-		Spinner s = (Spinner) findViewById(R.id.spinner);
-		EditText e = (EditText)findViewById(R.id.urlBox);
-		int pos = s.getSelectedItemPosition();
-		switch (pos) {
-		case 0:
-			break;
-		case 1:
-		case 2:
-		case 3:
-			e.setText(getResources().getStringArray(R.array.sampleUrls)[pos]);
-			break;
-		}
-	}
 	
 }
