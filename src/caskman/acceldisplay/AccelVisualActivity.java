@@ -13,15 +13,17 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.TextView;
+import android.view.Window;
 
 public class AccelVisualActivity extends Activity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		String data = loadFile();
 		setContentView(new DisplayPanel(this,data));
+		Model.getModel().initializeData(data);
 	}
 
 	private String loadFile() {

@@ -2,6 +2,7 @@ package caskman.acceldisplay;
 
 import android.content.Context;
 import android.view.Display;
+import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.WindowManager;
@@ -38,6 +39,12 @@ public class DisplayPanel extends SurfaceView implements SurfaceHolder.Callback 
 		
 	}
 
+	@Override
+	public boolean onTouchEvent(MotionEvent e) {
+		Model.getModel().manageInput(e);
+		return true;
+	}
+	
 	@Override
 	public void surfaceDestroyed(SurfaceHolder arg0) {
 		runnable.setRunning(false);

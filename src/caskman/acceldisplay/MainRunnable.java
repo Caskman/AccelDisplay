@@ -6,7 +6,7 @@ import android.view.SurfaceHolder;
 
 public class MainRunnable implements Runnable {
 	
-	private static int FPS = 25;
+	private static int FPS = 20;
 	private static int PERIOD = 1000/FPS;
 	private static int MISSED_FRAME_LIMIT = 5;
 	private boolean flag;
