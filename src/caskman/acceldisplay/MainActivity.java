@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.EditText;
@@ -27,6 +26,25 @@ public class MainActivity extends Activity {
 				int pos = arg0.getSelectedItemPosition();
 				if (pos >= 1 && pos <= 3)
 					e.setText(getResources().getStringArray(R.array.sampleUrls)[pos-1]);
+			}
+			@Override
+			public void onNothingSelected(AdapterView<?> arg0) {
+			}
+		});
+		
+		s = (Spinner)findViewById(R.id.originSpinner);
+		s.setOnItemSelectedListener(new OnItemSelectedListener() {
+			@Override
+			public void onItemSelected(AdapterView<?> arg0, View arg1,
+					int arg2, long arg3) {
+				int pos = arg0.getSelectedItemPosition();
+				if (pos == 0) {
+					((Spinner)findViewById(R.id.spinner)).setEnabled(true);
+					((EditText)findViewById(R.id.urlBox)).setEnabled(false);
+					(());
+				} else if (pos == 1) {
+					
+				}
 			}
 			@Override
 			public void onNothingSelected(AdapterView<?> arg0) {

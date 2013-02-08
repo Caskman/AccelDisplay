@@ -15,6 +15,10 @@
 	    <item>Sample Data 2</item>
 	    <item>Sample Data 3</item>
 	</string-array>
+	<string-array name="originEntries">
+	    <item>Url</item>
+	    <item>Local File</item>
+	</string-array>
 	<string-array 
 	    name="sampleUrls">
 	    <item>http://www2.engr.arizona.edu/~sprinkjm/work/ece473-573/sampleData01-hw02.txt</item>
