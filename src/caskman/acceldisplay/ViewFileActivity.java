@@ -26,32 +26,33 @@ public class ViewFileActivity extends Activity {
 
 	private void loadFile() {
 		Intent intent = getIntent();
-		String url = intent.getStringExtra("FILE_URL");
+		String data = intent.getStringExtra("DATA");
 		TextView t = (TextView) findViewById(R.id.viewBox);
-
-		DefaultHttpClient httpclient = new DefaultHttpClient();
-		HttpGet httppost = new HttpGet(url);
-		try {
-			HttpResponse response = httpclient.execute(httppost);
-			HttpEntity ht = response.getEntity();
-
-			BufferedHttpEntity buf = new BufferedHttpEntity(ht);
-
-			InputStream is = buf.getContent();
-
-			BufferedReader r = new BufferedReader(new InputStreamReader(is));
-
-			StringBuilder total = new StringBuilder();
-			String line;
-			while ((line = r.readLine()) != null) {
-				total.append(line + "\n");
-			}
-
-			t.setText(total.toString());
-		} catch (Exception e) {
-			e.printStackTrace();
-			t.setText(e.toString());
-		}
+		t.setText(data);
+//
+//		DefaultHttpClient httpclient = new DefaultHttpClient();
+//		HttpGet httppost = new HttpGet(url);
+//		try {
+//			HttpResponse response = httpclient.execute(httppost);
+//			HttpEntity ht = response.getEntity();
+//
+//			BufferedHttpEntity buf = new BufferedHttpEntity(ht);
+//
+//			InputStream is = buf.getContent();
+//
+//			BufferedReader r = new BufferedReader(new InputStreamReader(is));
+//
+//			StringBuilder total = new StringBuilder();
+//			String line;
+//			while ((line = r.readLine()) != null) {
+//				total.append(line + "\n");
+//			}
+//
+//			t.setText(total.toString());
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//			t.setText(e.toString());
+//		}
 	}
 
 }

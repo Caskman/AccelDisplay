@@ -2,7 +2,6 @@
 <resources>
 
     <string name="app_name">AccelDisplay</string>
-    <string name="hello_world">Hello world!</string>
     <string name="menu_settings">Settings</string>
     <string name="name">Eric Cascketta</string>
     <string name="assign">ECE 473 Homework 2</string>
@@ -15,10 +14,24 @@
 	    <item>Sample Data 2</item>
 	    <item>Sample Data 3</item>
 	</string-array>
+	<string-array name="originEntries">
+	    <item>Select Input</item>
+	    <item>Url</item>
+	    <item>Local File</item>
+	</string-array>
 	<string-array 
 	    name="sampleUrls">
 	    <item>http://www2.engr.arizona.edu/~sprinkjm/work/ece473-573/sampleData01-hw02.txt</item>
 	    <item>http://www2.engr.arizona.edu/~sprinkjm/work/ece473-573/sampleData02-hw02.txt</item>
 	    <item>http://www2.engr.arizona.edu/~sprinkjm/work/ece473-573/sampleData03-hw02.txt</item>
+	</string-array>
+	<string-array name="localFileEntries">
+	    <item>Select Sample File</item>
+	    <item>Short Sample File</item>
+	    <item>Long Sample File</item>
+	</string-array>
+	<string-array name="localFilenames">
+	    <item>shortSampleData.txt</item>
+	    <item>longSampleData.txt</item>
 	</string-array>
 </resources>

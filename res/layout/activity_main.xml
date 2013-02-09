@@ -4,6 +4,13 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity" >
 
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:id="@+id/originSpinner"
+        android:entries="@array/originEntries"
+        android:drawSelectorOnTop="true"/>
    <RelativeLayout
        android:layout_width="match_parent"
        android:layout_height="wrap_content"
@@ -33,37 +40,44 @@
 	        android:layout_height="wrap_content"
 	        android:layout_below="@id/assign"
 	        android:entries="@array/urlEntries"
-	        android:id="@+id/spinner"
+	        android:id="@+id/sampleLinkSpinner"
 	        android:drawSelectorOnTop="true"/>
-	        <!-- android:onClick="spinnerSelected" -->
 	    <EditText 
-	        android:layout_width="wrap_content"
+	        android:layout_width="match_parent"
 	        android:layout_height="wrap_content"
-	        android:layout_below="@id/spinner"
+	        android:layout_below="@id/sampleLinkSpinner"
 			android:layout_centerHorizontal="true"
 	        android:id="@+id/urlBox"
 	        android:hint="@string/urlHint"
-	        android:text="http://www2.engr.arizona.edu/~sprinkjm/work/ece473-573/sampleData01-hw02.txt"
 	        android:layout_marginTop="5dp"
 	        android:layout_marginBottom="5dp"
 	        android:inputType="textUri"/>
+	    <Spinner
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:layout_marginTop="5dp"
+	        android:layout_marginBottom="5dp"
+	        android:layout_below="@id/urlBox"
+	        android:id="@+id/localFileSpinner"
+	        android:drawSelectorOnTop="true"
+	        android:entries="@array/localFileEntries"/>
 	    <Button 
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
-	        android:layout_below="@id/urlBox"
+	        android:layout_below="@id/localFileSpinner"
 			android:layout_centerHorizontal="true"
-	      	android:text="Play File" 
-	        android:id="@+id/startButton"
+	      	android:text="View File" 
+	        android:id="@+id/viewButton"
 	        android:layout_marginTop="5dp"
 	        android:layout_marginBottom="5dp"
 	        android:onClick="openFile"/>
 	    <Button 
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
-	        android:layout_below="@id/startButton"
+	        android:layout_below="@id/viewButton"
 			android:layout_centerHorizontal="true"
-	      	android:text="Display File" 
-	        android:id="@+id/showButton"
+	      	android:text="Animate File" 
+	        android:id="@+id/animateButton"
 	        android:layout_marginTop="5dp"
 	        android:layout_marginBottom="5dp"
 	        android:onClick="openDisplay"/>
