@@ -28,34 +28,35 @@ public class AccelVisualActivity extends Activity {
 
 	private String loadFile() {
 		Intent intent = getIntent();
-		String url = intent.getStringExtra("FILE_URL");
+		String data = intent.getStringExtra("DATA");
+		return data;
 //		TextView t = (TextView) findViewById(R.id.viewBox);
 
-		DefaultHttpClient httpclient = new DefaultHttpClient();
-		HttpGet httppost = new HttpGet(url);
-		try {
-			HttpResponse response = httpclient.execute(httppost);
-			HttpEntity ht = response.getEntity();
-
-			BufferedHttpEntity buf = new BufferedHttpEntity(ht);
-
-			InputStream is = buf.getContent();
-
-			BufferedReader r = new BufferedReader(new InputStreamReader(is));
-
-			StringBuilder total = new StringBuilder();
-			String line;
-			while ((line = r.readLine()) != null) {
-				total.append(line + "\n");
-			}
-
-			return total.toString();
-//			t.setText(total.toString());
-		} catch (Exception e) {
-			e.printStackTrace();
-			return "Error";
-//			t.setText(e.toString());
-		}
+//		DefaultHttpClient httpclient = new DefaultHttpClient();
+//		HttpGet httppost = new HttpGet(url);
+//		try {
+//			HttpResponse response = httpclient.execute(httppost);
+//			HttpEntity ht = response.getEntity();
+//
+//			BufferedHttpEntity buf = new BufferedHttpEntity(ht);
+//
+//			InputStream is = buf.getContent();
+//
+//			BufferedReader r = new BufferedReader(new InputStreamReader(is));
+//
+//			StringBuilder total = new StringBuilder();
+//			String line;
+//			while ((line = r.readLine()) != null) {
+//				total.append(line + "\n");
+//			}
+//
+//			return total.toString();
+////			t.setText(total.toString());
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//			return "Error";
+////			t.setText(e.toString());
+//		}
 	}
 
 }

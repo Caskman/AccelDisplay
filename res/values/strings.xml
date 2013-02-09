@@ -27,11 +27,11 @@
 	</string-array>
 	<string-array name="localFileEntries">
 	    <item>Select Sample File</item>
-	    <item>Sample File 1</item>
-	    <item>Sample File 2</item>
+	    <item>Short Sample File</item>
+	    <item>Long Sample File</item>
 	</string-array>
 	<string-array name="localFilenames">
-	    <item>sample1.txt</item>
-	    <item>sample2.txt</item>
+	    <item>shortSampleData.txt</item>
+	    <item>longSampleData.txt</item>
 	</string-array>
 </resources>
