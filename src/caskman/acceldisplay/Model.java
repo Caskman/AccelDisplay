@@ -134,7 +134,7 @@ public class Model {
 			drawValuesColor(c, 0F);
 		else
 			drawValuesColor(c, interpol);
-		drawValuesText(c, interpol);
+//		drawValuesText(c, interpol);
 		if (state == DisplayState.PAUSED || state == DisplayState.STOPPED) {
 			drawStateText(c, interpol);
 		}

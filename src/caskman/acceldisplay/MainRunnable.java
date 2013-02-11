@@ -1,6 +1,5 @@
 package caskman.acceldisplay;
 
-import android.content.Context;
 import android.graphics.Canvas;
 import android.view.SurfaceHolder;
 
@@ -21,7 +20,6 @@ public class MainRunnable implements Runnable {
 	public void setRunning(boolean b) {
 		flag = b;
 	}
-	
 	
 	@Override
 	public void run() {
